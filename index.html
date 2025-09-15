@@ -1,65 +1,101 @@
-
-<!DOCTYPE html>
-<html lang="es">
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lonestore®</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat Afiliadores bplay</title>
+
+  <!-- CSS básico -->
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f9;
+      color: #333;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    main {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      color: #1f2937;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #1e40af;
+    }
+
+    footer {
+      background: #111827;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h2>Chat Afiliadores bplay</h2>
+  </header>
 
-  <!-- Sección 1: Carrusel de portada -->
-<section id="inicio" class="pantalla-completa portada">
-  <div id="carrusel" class="carrusel">
-    <div class="slide activo" style="background-image: url('Imagen/carruselluno.jpg');"></div>
-    <div class="slide" style="background-image: url('Imagen/carruselldos.jpg');"></div>
-    <div class="slide" style="background-image: url('Imagen/carruselltres.jpg');"></div>
-    <div class="slide" style="background-image: url('Imagen/carrusellcuatro.jpg');"></div>
-    <!-- 🔁 Agregá más divs como estos si querés más imágenes -->
-  </div>
+  <main>
+    <h1>Bienvenido al Chat de Afiliadores</h1>
+    <p>
+      Esta es la página oficial de soporte para <strong>afiliadores de bplay</strong>.  
+      Podés iniciar el chat en la esquina inferior derecha o desde el botón siguiente.
+    </p>
+    <a href="#" class="btn" onclick="abrirChat()">Iniciar Chat Ahora</a>
+  </main>
 
-  <!-- Flechas del carrusel -->
-  <div class="control izquierda" onclick="cambiarSlide(-1)">&#10094;</div>
-  <div class="control derecha" onclick="cambiarSlide(1)">&#10095;</div>
+  <footer>
+    &copy; 2025 - bplay Afiliadores
+  </footer>
 
-  <!-- Flecha hacia abajo -->
-  <div id="flecha-abajo-inicio" class="flecha" onclick="scrollToSection('quienes')">
-  <img src="Imagen/Boton abajo.png" alt="Flecha hacia abajo" />
-</div>
-</section>
+  <!-- Script de Zendesk (chat widget) -->
+  <!-- Start of bplayafiliadores Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=dfe2b61e-849f-41f5-8aca-689bbc631da2"></script>
+  <!-- End of bplayafiliadores Zendesk Widget script -->
 
-  <!-- Sección 2: Quiénes Somos -->
-<section id="quienes" class="pantalla-completa quienes">
-  <div class="contenido-quienes">
-    <h1>Quiénes somos</h1>
-    <p>Lonestore es un emprendimiento dedicado a crear y ofrecer productos únicos para el hogar. Fabricamos piezas en fibrofácil y madera, enfocadas en la funcionalidad, el diseño y la calidez que solo los materiales nobles pueden transmitir.</p>
-  </div>
-  <div id="flecha-abajo-quienes" class="flecha" onclick="scrollToSection('contacto')">
-  <img src="Imagen/Boton abajo.png" alt="Flecha hacia abajo" />
-</div>
-</section>
-
-  <!-- Sección 3: Contacto -->
-  <section id="contacto" class="pantalla-completa contacto">
-    <div class="botones-contacto">
-      <a href="https://instagram.com" target="_blank" class="btn-contacto">Instagram</a>
-      <a href="https://wa.me/1234567890" target="_blank" class="btn-contacto">WhatsApp</a>
-    </div>
-  </section>
-
-  <!-- Botón para volver al inicio -->
-<div id="btn-top" onclick="scrollToSection('inicio')">
-  <img src="Imagen/Boton arriba.png" style=";" alt="Subir al inicio" />
-</div>
-
-  <script src="script.js"></script>
-
-  <footer class="footer">
-  <p>© 2025 Todos los derechos reservados.</p>
-</footer>
+  <!-- Script extra en JS -->
+  <script>
+    // Función para abrir directamente el chat de Zendesk
+    function abrirChat() {
+      if (typeof zE !== "undefined") {
+        try {
+          // Abre el messenger directamente
+          zE('messenger', 'open');
+        } catch (e) {
+          // Fallback para el widget clásico si no soporta messenger
+          zE('webWidget', 'open');
+        }
+      } else {
+        alert("El widget de Zendesk aún no se cargó.");
+      }
+    }
+  </script>
 </body>
 </html>
